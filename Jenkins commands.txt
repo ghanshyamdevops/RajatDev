@@ -168,7 +168,63 @@ step01- install maven
       - put in test report xml "target/surefire-reports/*.xml"
       -run the job
       - verify the "Test result" 
+-------------------------------------------------------------------------------------------------------------
+--------------------------------------------
+#Create QAPackagejob job ---> This type of job do the coverage Analysis
+       -create new job name -QAPackagejob Job
+       - select free style project
+       - click button "ok"
+       - go source code management and click "Git) option 
+       - https://github.com/ghanshyamdevops/DevOpsClassCodes-1.git(give the source code library path)
+       -#go to Build tab
+       - select "invoke top-level Maven target"
+       - select "mymaven" in Maven Version 
+       -  select goal name as " cobertura:cobertura -Dcobertura.report.format=xml"
+       - install the plugin "Cobertura"   
+       - go to job and select in "publish Coberyura coverage report" 
+       - select "target/site/cobertura/coverage.xml"
+      -run the job
+      - verify the "Coverage Report" option
 
+
+
+--run job as 
+use post build job (build another project)
+compile job --> DevCodeReview ---> QAUnitTest --> QAMetricCheck ---- > QAPackagejob
+
+-- for Graphics view
+-- install pulgin : build pipline
+
+----------------------------
+
+--go to global security and change "Agents" check box "Random" in master 
+create a node 
+
+go to manage node
+create new node
+  - node name
+  -permanent
+
+- go to node server
+mkdir jenkins
+chmod 777
+- install git(yum install -y git)
+-install java(yum install -y java)
+-install maven(yum install -y maven)
+-whereis java(/usr/bin/java)
+-whereis maven(/etc/maven)
+-whereis git(/usr/bin/git)
+
+select option restric job
+--------------------
+git init
+git config --global user.name "xxxxxxxx"
+
+git config --global user.email "xxxxxx@gmail.com"
+
+git remote add tttt https://github.com/ghanshyamdevops/devhelp.git
+
+git pull tttt master
 
 
 
